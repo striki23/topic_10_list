@@ -4,6 +4,6 @@
 line: str = input('Введите ваш текст: ')
 
 line_rev: list[str, ...] = line.split()[::-1]
-line_word_rev: str = line[::-1]
+
 print(*line_rev)
-print(line_word_rev)
+print(line[::-1])

@@ -1,18 +1,12 @@
 # Программа удаляет все вхождения введенного
 # пользователем элемента из списка.
 
-lst: list = [3, 3, 2, 1, 5, 3, 8, 11]
-num: int = int(input('Укажите элемент для удаления:'))
-if not lst:
+numbers: list = [3, 3, 2, 1, 5, 3, 8, 11]
+num: int = int(input('Укажите элемент для удаления: '))
+
+if not numbers:
     print('Пустой список')
-elif num not in lst:
+elif num not in numbers:
     print('Не найден')
 else:
-    # var 1
-    while num in lst:
-        lst.remove(num)
-    print(lst)
-
-    # var 2
-    # new_lst = [el for el in lst if el != num]
-    # print(new_lst)
+    print([el for el in numbers if el != num])
