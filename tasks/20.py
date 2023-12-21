@@ -15,7 +15,7 @@ else:
             x_num = nums[i - 1] + nums[0]
         else:
             x_num = nums[i - 1] + nums[i + 1]
-
         new_nums.append(x_num)
-
     print(*new_nums)
+
+# TODO: Нужно проверить и улучшить.
