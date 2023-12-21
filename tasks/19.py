@@ -2,13 +2,13 @@
 # Программа выводит числа, кот повторяются более 1 раза.
 # Числа в выводе не должны повторятся.
 
-nums: list[int, ...] = list(map(
-    int, input('Введите числа через пробел: ').split())
-)
-repeated_nums: list[int, ...] = []
-for num in nums:
-    if nums.count(num) > 1 and num not in repeated_nums:
-        repeated_nums. append(num)
+nums = list(map(int, input('Введите числа через пробел: ').split()))
+repeated_nums = []
+for idx, num in enumerate(nums):
+    if num in nums[idx+1:] or num in repeated_nums:
+        repeated_nums.append(num)
+    else:
+        continue
 print(*repeated_nums)
 
-# 5 5 -2 3 6 8 9 7 3 6 15 26 -26 0 158 0 7
+# 1 9 7 3 6 2 7 3 4 3
