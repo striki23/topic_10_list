@@ -1,21 +1,33 @@
+import random
+
 # на вход которой подаётся список чисел одной строкой.
 # Программа для каждого элемента выводит  сумму двух его cоседей.
 
-nums: list[int, ...] = list(map(
-    int, input('Введите числа через пробел: ').split())
-)
-if len(nums) == 1:
-    print(*nums)
-else:
-    new_nums: list[int, ...] = []
-    for i, num in enumerate(nums):
-        if i == 0:
-            x_num = nums[i+1] + nums[len(nums)-1]
-        elif i == len(nums) - 1:
-            x_num = nums[i - 1] + nums[0]
-        else:
-            x_num = nums[i - 1] + nums[i + 1]
-        new_nums.append(x_num)
-    print(*new_nums)
+# nums: list[int, ...] = list(map(
+#     int, input('Введите числа через пробел: ').split())
+# )
 
-# TODO: Нужно проверить и улучшить.
+# Список 5 случайных чисел в диапазоне от 1 до 100
+nums: list[int] = [random.randint(1, 100) for _ in range(5)]
+print('Исходный список:', nums)
+
+length = len(nums)
+
+# Вариант 1: Обычный итератор
+result: list[int] = []
+for i in range(length):
+    left_neighbor: int = nums[i - 1]
+    right_neighbor: int = nums[(i + 1) % length]
+    two_sum: int = left_neighbor + right_neighbor
+
+    result.append(two_sum)
+
+# ----------------------------------
+
+# Вариант 2: в одну строчку
+# if length == 1:
+#     print(*nums)
+# else:
+#     nums: list[int] = [nums[i - 1] + nums[(i + 1) % length]
+#                        for i in range(length)]
+#     print(*nums)

@@ -1,20 +1,25 @@
+import random
+
 # Вводятся числа в одну строчку через пробел.
 # Программа выводит числа, кот повторяются более 1 раза.
 # Числа в выводе не должны повторятся.
 
-nums = list(map(int, input('Введите числа через пробел: ').split()))
-repeated_nums = []
-for idx, num in enumerate(nums):
-    if num in nums[idx + 1:] or num in repeated_nums:
-        repeated_nums.append(num)
-
-print(*repeated_nums)
-
 # 1 9 7 3 6 2 7 3 4 3
-length = len(nums)
+# nums = [1, 9, 7, 3, 6, 2, 7, 3, 4, 3]
+# nums = list(map(int, input('Введите числа через пробел: ').split()))
+
+# Список 12 случайных чисел в диапазоне от 1 до 90
+nums: list[int] = [random.randint(1, 90) for _ in range(12)]
+print('Исходный список', nums)
+
+length: int = len(nums)
+is_found_duplicates: bool = False
 for i in range(length):
     for j in range(length):
-        if nums[i] == nums[j] and i != j:
+        if i != j and nums[i] == nums[j]:
             print(nums[i], end=' ')
+            is_found_duplicates = True
+            break
 
-# TODO: Неверный вывод.
+if not is_found_duplicates:
+    print('В списке нет повторяющихся чисел')
